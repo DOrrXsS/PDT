@@ -80,9 +80,13 @@ export default function FunctionPage() {
 
   let querySubmit = async (e) => {
     setResult(-1)
-    let res = await queryOpenaiChat({ prompt: value });
-    setResult(res.choices[0].message.content);
-    setValue("");
+    try {
+      let res = await queryOpenaiChat({ prompt: value });
+      setResult(res.choices[0].message.content);
+      setValue("");
+    }catch(e){
+      setResult(`ERROR:${e.message}`)
+    }
   };
 
   return (

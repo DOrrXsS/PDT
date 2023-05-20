@@ -8,6 +8,9 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
 export default defineConfig({
     mode: 'development',
     plugins: [react()],
+    build: {
+      outDir: 'build'
+    },
     css: {
       preprocessorOptions: {
         styl: {
